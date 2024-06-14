@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import axios from 'axios'
 import Link from 'next/link'
 import Modal from 'react-bootstrap/Modal'
 import Form from 'react-bootstrap/Form'
@@ -10,15 +11,28 @@ import PasswordToggle from '../components/PasswordToggle'
 const SignInModalLight = ({ onSwap, pillButtons, ...props }) => {
 
   // Form validation
-  const [validated, setValidated] = useState(false)
-  const handleSubmit = (event) => {
-    const form = event.currentTarget
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [validated, setValidated] = useState(false);
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const form = event.currentTarget;
     if (form.checkValidity() === false) {
-      event.preventDefault()
-      event.stopPropagation()
+      event.stopPropagation();
+    } else {
+      // API call to sign-in endpoint
+      try {
+        const response = await axios.post('/api/signin', { email, password });
+        console.log('Sign-in successful:', response.data);
+        alert('Sign-in successful!');
+        // You may want to handle navigation or state update here
+      } catch (error) {
+        alert('Sign-in failed: ' + (error.response?.data.message || error.message));
+      }
     }
     setValidated(true);
-  }
+  };
 
   return (
     
@@ -73,6 +87,8 @@ const SignInModalLight = ({ onSwap, pillButtons, ...props }) => {
                 type='email'
                 placeholder='Enter your email'
                 required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
             </Form.Group>
             <Form.Group className='mb-4'>
@@ -80,7 +96,7 @@ const SignInModalLight = ({ onSwap, pillButtons, ...props }) => {
                 <Form.Label htmlFor='si-password' className='mb-0'>Password</Form.Label>
                 <Link href='#' className='fs-sm'>Forgot password?</Link>
               </div>
-              <PasswordToggle id='si-password' placeholder='Enter password' required />
+              <PasswordToggle id='si-password' placeholder='Enter password' required value={password} onChange={(e)=>setPassword(e.target.value)}/>
             </Form.Group>
             <Button type='submit' size='lg' variant={`primary ${pillButtons ? 'rounded-pill' : ''} w-100`}>
               Sign in

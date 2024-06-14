@@ -2,7 +2,6 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/post-resume-2": "pages/post-resume-2.js",
-  "/post-resume-4": "pages/post-resume-4.js",
-  "/post-resume-3": "pages/post-resume-3.js"
+  "/api/signin": "pages/api/signin.js",
+  "/sign-in": "pages/sign-in.js"
 }

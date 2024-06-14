@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import axios from 'axios'
 import Link from 'next/link'
 import Modal from 'react-bootstrap/Modal'
 import Form from 'react-bootstrap/Form'
@@ -9,16 +10,35 @@ import PasswordToggle from '../components/PasswordToggle'
 
 const SignUpModalLight = ({ onSwap, pillButtons, ...props }) => {
 
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [validated, setValidated] = useState(false);
+
   // Form validation
-  const [validated, setValidated] = useState(false)
-  const handleSubmit = (event) => {
-    const form = event.currentTarget
+ 
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const form = event.currentTarget;
     if (form.checkValidity() === false) {
-      event.preventDefault()
-      event.stopPropagation()
+      event.stopPropagation();
+    } else if (password !== confirmPassword) {
+      alert('Passwords do not match!');
+      return;
+    } else {
+      // Send a POST request to the server
+      try {
+        const response = await axios.post('/api/signup', {name, email, password });
+        alert('Signup successful!');
+        console.log(response.data);
+        // Handle response and actions after sign up
+      } catch (error) {
+        alert('Signup failed: ' + error.response.data.message);
+      }
     }
     setValidated(true);
-  }
+  };
 
   return (
     <div className='d-flex flex-column align-items-center justify-content-center'>
@@ -58,20 +78,20 @@ const SignUpModalLight = ({ onSwap, pillButtons, ...props }) => {
                 alt='Illusration'
               />
             </div>
-            <div className='mt-sm-4 pt-md-3'>Already have an account? <a href='#' onClick={onSwap}>Sign in</a></div>
+            <div className='mt-sm-4 pt-md-3'>Already have an account? <a href='/sign-in' onClick={onSwap}>Sign in</a></div>
           </div>
           <div className='col-md-6 px-4 pt-2 pb-4 px-sm-5 pb-sm-5 pt-md-5'>
             <Button variant={`outline-info ${pillButtons ? 'rounded-pill' : ''} w-100 mb-3`}>
               <i className='fi-google fs-lg me-1'></i>
-              Sign in with Google
+              Google
             </Button>
             <Button variant={`outline-info ${pillButtons ? 'rounded-pill' : ''} w-100 mb-3`}>
               <i className='fi-facebook fs-lg me-1'></i>
-              Sign in with Facebook
+              Facebook
             </Button>
             <Button variant={`outline-info ${pillButtons ? 'rounded-pill' : ''} w-100 mb-3`}>
               <i className='fi-linkedin fs-lg me-1'></i>
-              Sign in with LinkedIn
+              LinkedIn
             </Button>
             <div className='d-flex align-items-center py-3 mb-3'>
               <hr className='w-100' />
@@ -84,6 +104,8 @@ const SignUpModalLight = ({ onSwap, pillButtons, ...props }) => {
                 <Form.Control
                   placeholder='Enter your full name'
                   required
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
                   />
               </Form.Group>
               <Form.Group controlId='su-email' className='mb-4'>
@@ -92,17 +114,19 @@ const SignUpModalLight = ({ onSwap, pillButtons, ...props }) => {
                   type='email'
                   placeholder='Enter your email'
                   required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   />
               </Form.Group>
               <Form.Group className='mb-4'>
                 <Form.Label htmlFor='su-password'>
                   Password <span className='fs-sm text-muted'>min. 8 char</span>
                 </Form.Label>
-                <PasswordToggle id='su-password' minLength='8' required />
+                <PasswordToggle id='su-password' minLength='8' required value={password} onChange={(e) => setPassword(e.target.value)}/>
               </Form.Group>
               <Form.Group className='mb-4'>
                 <Form.Label htmlFor='su-confirm-password'>Confirm password</Form.Label>
-                <PasswordToggle id='su-confirm-password' minLength='8' required />
+                <PasswordToggle id='su-confirm-password' minLength='8' required value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)}/>
               </Form.Group>
               <Form.Check
                 type='checkbox'
