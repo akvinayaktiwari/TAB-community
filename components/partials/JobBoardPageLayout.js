@@ -114,7 +114,7 @@ const JobBoardPageLayout = (props) => {
                   Notifications
                 </Dropdown.Item>
                 <Dropdown.Divider as='div' />
-                <Dropdown.Item as={Link} href='/signin-light'>
+                <Dropdown.Item as={Link} href='/sign-in'>
                   <i className='fi-logout me-2'></i>
                   Sign Out
                 </Dropdown.Item>
@@ -202,26 +202,26 @@ const JobBoardPageLayout = (props) => {
                     <Dropdown>
                       <Dropdown.Toggle as={Dropdown.Item}>Account Pages</Dropdown.Toggle>
                       <Dropdown.Menu variant='dark' renderOnMount>
-                        <Dropdown.Item as={Link} href='/job-board/account-profile'>Profile Settings</Dropdown.Item>
-                        <Dropdown.Item as={Link} href='/job-board/account-resumes'>My Resumes</Dropdown.Item>
-                        <Dropdown.Item as={Link} href='/job-board/account-saved-jobs'>Saved Jobs</Dropdown.Item>
-                        <Dropdown.Item as={Link} href='/job-board/account-notifications'>Notifications</Dropdown.Item>
-                        <Dropdown.Item as={Link} href='/signin-light'>Sign in</Dropdown.Item>
-                        <Dropdown.Item as={Link} href='/signup-light'>Sign up</Dropdown.Item>
+                        <Dropdown.Item as={Link} href='/account-profile'>Profile Settings</Dropdown.Item>
+                        <Dropdown.Item as={Link} href='/account-resumes'>My Resumes</Dropdown.Item>
+                        <Dropdown.Item as={Link} href='/account-saved-jobs'>Saved Jobs</Dropdown.Item>
+                        <Dropdown.Item as={Link} href='/account-notifications'>Notifications</Dropdown.Item>
+                        <Dropdown.Item as={Link} href='/sign-in'>Sign in</Dropdown.Item>
+                        <Dropdown.Item as={Link} href='/sign-up'>Sign up</Dropdown.Item>
                       </Dropdown.Menu>
                     </Dropdown>
                     <Dropdown>
                       <Dropdown.Toggle as={Dropdown.Item}>Post Resume</Dropdown.Toggle>
                       <Dropdown.Menu variant='dark' renderOnMount>
-                        <Dropdown.Item as={Link} href='/job-board/post-resume-1'>Step 1: Basic Info</Dropdown.Item>
-                        <Dropdown.Item as={Link} href='/job-board/post-resume-2'>Step 2: Education</Dropdown.Item>
-                        <Dropdown.Item as={Link} href='/job-board/post-resume-3'>Step 3: Work Experience</Dropdown.Item>
-                        <Dropdown.Item as={Link} href='/job-board/post-resume-4'>Step 4: Skills</Dropdown.Item>
-                        <Dropdown.Item as={Link} href='/job-board/post-resume-5'>Step 5: Review</Dropdown.Item>
+                        <Dropdown.Item as={Link} href='/post-resume-1'>Step 1: Basic Info</Dropdown.Item>
+                        <Dropdown.Item as={Link} href='/post-resume-2'>Step 2: Education</Dropdown.Item>
+                        <Dropdown.Item as={Link} href='/post-resume-3'>Step 3: Work Experience</Dropdown.Item>
+                        <Dropdown.Item as={Link} href='/post-resume-4'>Step 4: Skills</Dropdown.Item>
+                        <Dropdown.Item as={Link} href='/post-resume-5'>Step 5: Review</Dropdown.Item>
                       </Dropdown.Menu>
                     </Dropdown>
-                    <Dropdown.Item as={Link} href='/job-board/promotion'>Ad Promotion Page</Dropdown.Item>
-                    <Dropdown.Item as={Link} href='/job-board/employer-single'>Employer / Company Page</Dropdown.Item>
+                    <Dropdown.Item as={Link} href='/promotion'>Ad Promotion Page</Dropdown.Item>
+                    <Dropdown.Item as={Link} href='/employer-single'>Employer / Company Page</Dropdown.Item>
                   </Dropdown.Menu>
                 </Nav.Item>
                 <Nav.Item as={Dropdown}>
@@ -231,19 +231,19 @@ const JobBoardPageLayout = (props) => {
                     <Dropdown>
                       <Dropdown.Toggle as={Dropdown.Item}>Blog</Dropdown.Toggle>
                       <Dropdown.Menu variant='dark' renderOnMount>
-                        <Dropdown.Item as={Link} href='/job-board/blog'>Blog Grid</Dropdown.Item>
-                        <Dropdown.Item as={Link} href='/job-board/blog-single'>Blog Single</Dropdown.Item>
+                        <Dropdown.Item as={Link} href='/blog'>Blog Grid</Dropdown.Item>
+                        <Dropdown.Item as={Link} href='/blog-single'>Blog Single</Dropdown.Item>
                       </Dropdown.Menu>
                     </Dropdown>
-                    <Dropdown.Item as={Link} href='/job-board/contacts'>Contacts</Dropdown.Item>
+                    <Dropdown.Item as={Link} href='/contacts'>Contacts</Dropdown.Item>
                     <Dropdown>
                       <Dropdown.Toggle as={Dropdown.Item}>Help Center</Dropdown.Toggle>
                       <Dropdown.Menu variant='dark' renderOnMount>
-                        <Dropdown.Item as={Link} href='/job-board/help-center'>Help Topics</Dropdown.Item>
-                        <Dropdown.Item as={Link} href='/job-board/help-center-single'>Single Topic</Dropdown.Item>
+                        <Dropdown.Item as={Link} href='/help-center'>Help Topics</Dropdown.Item>
+                        <Dropdown.Item as={Link} href='/help-center-single'>Single Topic</Dropdown.Item>
                       </Dropdown.Menu>
                     </Dropdown>
-                    <Dropdown.Item as={Link} href='/job-board/404-not-found'>404 Not Found</Dropdown.Item>
+                    <Dropdown.Item as={Link} href='/404-not-found'>404 Not Found</Dropdown.Item>
                   </Dropdown.Menu>
                 </Nav.Item>
 
@@ -257,24 +257,24 @@ const JobBoardPageLayout = (props) => {
                     <div className='fs-xs ps-3 py-2'>
                       (302) 555-0107<br/>annette_black@email.com
                     </div>
-                    <Dropdown.Item as={Link} href='/job-board/account-profile'>
+                    <Dropdown.Item as={Link} href='/account-profile'>
                       <i className='fi-settings me-2'></i>
                       Profile Settings
                     </Dropdown.Item>
-                    <Dropdown.Item as={Link} href='/job-board/account-resumes'>
+                    <Dropdown.Item as={Link} href='/account-resumes'>
                       <i className='fi-file me-2'></i>
                       My Resumes
                     </Dropdown.Item>
-                    <Dropdown.Item as={Link} href='/job-board/account-saved-jobs'>
+                    <Dropdown.Item as={Link} href='/account-saved-jobs'>
                       <i className='fi-heart me-2'></i>
                       Saved Jobs
                     </Dropdown.Item>
-                    <Dropdown.Item as={Link} href='/job-board/account-notifications'>
+                    <Dropdown.Item as={Link} href='/account-notifications'>
                       <i className='fi-bell me-2'></i>
                       Notifications
                     </Dropdown.Item>
                     <Dropdown.Divider as='div' />
-                    <Dropdown.Item as={Link} href='/signin-light'>Sign Out</Dropdown.Item>
+                    <Dropdown.Item as={Link} href='/sign-in'>Sign Out</Dropdown.Item>
                   </Dropdown.Menu>
                 </Nav.Item> : 
 
