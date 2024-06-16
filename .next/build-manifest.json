@@ -25,20 +25,15 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/post-resume-2": [
+    "/sign-in": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/post-resume-2.js"
+      "static/chunks/pages/sign-in.js"
     ],
-    "/post-resume-3": [
+    "/sign-up": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/post-resume-3.js"
-    ],
-    "/post-resume-4": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/post-resume-4.js"
+      "static/chunks/pages/sign-up.js"
     ]
   },
   "ampFirstPages": []
