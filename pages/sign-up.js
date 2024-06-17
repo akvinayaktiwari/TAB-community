@@ -1,12 +1,22 @@
 import { useState } from 'react'
 import axios from 'axios'
 import Link from 'next/link'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 import Modal from 'react-bootstrap/Modal'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import CloseButton from 'react-bootstrap/CloseButton'
 import ImageLoader from '../components/ImageLoader'
 import PasswordToggle from '../components/PasswordToggle'
+import { useGoogleLogin } from '@react-oauth/google';
+import { GoogleOAuthProvider } from '@react-oauth/google';
+
+
+// const login = useGoogleLogin({
+//   onSuccess: tokenResponse => console.log(tokenResponse),
+// });
+
 
 const SignUpModalLight = ({ onSwap, pillButtons, ...props }) => {
 
@@ -81,23 +91,7 @@ const SignUpModalLight = ({ onSwap, pillButtons, ...props }) => {
             <div className='mt-sm-4 pt-md-3'>Already have an account? <a href='/sign-in' onClick={onSwap}>Sign in</a></div>
           </div>
           <div className='col-md-6 px-4 pt-2 pb-4 px-sm-5 pb-sm-5 pt-md-5'>
-            <Button variant={`outline-info ${pillButtons ? 'rounded-pill' : ''} w-100 mb-3`}>
-              <i className='fi-google fs-lg me-1'></i>
-              Google
-            </Button>
-            <Button variant={`outline-info ${pillButtons ? 'rounded-pill' : ''} w-100 mb-3`}>
-              <i className='fi-facebook fs-lg me-1'></i>
-              Facebook
-            </Button>
-            <Button variant={`outline-info ${pillButtons ? 'rounded-pill' : ''} w-100 mb-3`}>
-              <i className='fi-linkedin fs-lg me-1'></i>
-              LinkedIn
-            </Button>
-            <div className='d-flex align-items-center py-3 mb-3'>
-              <hr className='w-100' />
-              <div className='px-3'>Or</div>
-              <hr className='w-100' />
-            </div>
+           
             <Form noValidate validated={validated} onSubmit={handleSubmit}>
               <Form.Group controlId='su-name' className='mb-4'>
                 <Form.Label>Full name</Form.Label>
@@ -137,6 +131,34 @@ const SignUpModalLight = ({ onSwap, pillButtons, ...props }) => {
                 />
               <Button type='submit' size='lg' variant={`primary ${pillButtons ? 'rounded-pill' : ''} w-100`}>Sign up</Button>
             </Form>
+            <div className='d-flex align-items-center py-3 mb-3'>
+            <hr className='w-100' />
+            <div className='px-3'>Or</div>
+            <hr className='w-100' />
+          </div>
+          <Row>
+            <Col>
+            <GoogleOAuthProvider clientId="311327332610-p023nn4qt79suma9m4jqumt6fijaok2c.apps.googleusercontent.com">
+
+          <Button  variant={`outline-info ${pillButtons ? 'rounded-pill' : ''} w-100 mb-3`}>
+            <i className='fi-google fs-lg me-1'></i>
+           
+          </Button>
+            </GoogleOAuthProvider>
+            </Col>
+            <Col>
+          <Button variant={`outline-info ${pillButtons ? 'rounded-pill' : ''} w-100 mb-3`}>
+            <i className='fi-facebook fs-lg me-1'></i>
+          
+          </Button>
+            </Col>
+            <Col>
+          <Button variant={`outline-info ${pillButtons ? 'rounded-pill' : ''} w-100 mb-3`}>
+              <i className='fi-linkedin fs-lg me-1'></i>
+              
+            </Button>
+            </Col>
+          </Row>
           </div>
           </div>
         </div>

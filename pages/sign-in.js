@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import axios from 'axios'
 import Link from 'next/link'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 import Modal from 'react-bootstrap/Modal'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
@@ -37,7 +39,7 @@ const SignInModalLight = ({ onSwap, pillButtons, ...props }) => {
   return (
     
     <div className='d-flex flex-column align-items-center justify-content-center'>
-    <div className='mt-4'>
+    <div className='mx-auto mt-4 align-items-center'>
       <ImageLoader
         src='/images/Frame 2.jpg'
         width={180}
@@ -59,27 +61,10 @@ const SignInModalLight = ({ onSwap, pillButtons, ...props }) => {
             />
           </div>
           <div className='mt-4 mt-sm-5'>
-            Don&apos;t have an account? <a href='#' onClick={onSwap}>Sign up here</a>
+            Don&apos;t have an account? <a href='./sign-up' onClick={onSwap}>Sign up here</a>
           </div>
         </div>
         <div className='col-md-6 px-4 pt-2 pb-4 px-sm-5 pb-sm-5 pt-md-5'>
-          <Button variant={`outline-info ${pillButtons ? 'rounded-pill' : ''} w-100 mb-3`}>
-            <i className='fi-google fs-lg me-1'></i>
-            Sign in with Google
-          </Button>
-          <Button variant={`outline-info ${pillButtons ? 'rounded-pill' : ''} w-100 mb-3`}>
-            <i className='fi-facebook fs-lg me-1'></i>
-            Sign in with Facebook
-          </Button>
-          <Button variant={`outline-info ${pillButtons ? 'rounded-pill' : ''} w-100 mb-3`}>
-              <i className='fi-linkedin fs-lg me-1'></i>
-              Sign in with LinkedIn
-            </Button>
-          <div className='d-flex align-items-center py-3 mb-3'>
-            <hr className='w-100' />
-            <div className='px-3'>Or</div>
-            <hr className='w-100' />
-          </div>
           <Form noValidate validated={validated} onSubmit={handleSubmit}>
             <Form.Group controlId='si-email' className='mb-4'>
               <Form.Label>Email address</Form.Label>
@@ -94,7 +79,7 @@ const SignInModalLight = ({ onSwap, pillButtons, ...props }) => {
             <Form.Group className='mb-4'>
               <div className='d-flex align-items-center justify-content-between mb-2'>
                 <Form.Label htmlFor='si-password' className='mb-0'>Password</Form.Label>
-                <Link href='#' className='fs-sm'>Forgot password?</Link>
+                <Link href='/forgot-password' className='fs-sm'>Forgot password?</Link>
               </div>
               <PasswordToggle id='si-password' placeholder='Enter password' required value={password} onChange={(e)=>setPassword(e.target.value)}/>
             </Form.Group>
@@ -102,6 +87,31 @@ const SignInModalLight = ({ onSwap, pillButtons, ...props }) => {
               Sign in
             </Button>
           </Form>
+          <div className='d-flex align-items-center py-3 mb-3'>
+            <hr className='w-100' />
+            <div className='px-3'>Or</div>
+            <hr className='w-100' />
+          </div>
+          <Row>
+            <Col>
+          <Button variant={`outline-info ${pillButtons ? 'rounded-pill' : ''} w-100 mb-3`}>
+            <i className='fi-google fs-lg me-1'></i>
+           
+          </Button>
+            </Col>
+            <Col>
+          <Button variant={`outline-info ${pillButtons ? 'rounded-pill' : ''} w-100 mb-3`}>
+            <i className='fi-facebook fs-lg me-1'></i>
+          
+          </Button>
+            </Col>
+            <Col>
+          <Button variant={`outline-info ${pillButtons ? 'rounded-pill' : ''} w-100 mb-3`}>
+              <i className='fi-linkedin fs-lg me-1'></i>
+              
+            </Button>
+            </Col>
+          </Row>
         </div>
       </div>
     </div>
