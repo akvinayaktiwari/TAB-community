@@ -13,7 +13,6 @@ import PasswordToggle from '../components/PasswordToggle'
 const SignInModalLight = ({ onSwap, pillButtons, ...props }) => {
 
   // Form validation
-  const { data: session } = useSession();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [validated, setValidated] = useState(false);

@@ -12,12 +12,9 @@ import PasswordToggle from "../components/PasswordToggle";
 import { useGoogleLogin } from "@react-oauth/google";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import { useRouter } from "next/router";
-import { signIn, signOut, useSession } from 'next-auth/react';
-
 
 
 const SignUpModalLight = ({ onSwap, pillButtons, ...props }) => {
-  const { data: session } = useSession();
   const Router = useRouter();
   const [isSent, setIsSent] = useState(false);
   const [otpEntered, setOtpEntered] = useState("");
@@ -243,14 +240,15 @@ const SignUpModalLight = ({ onSwap, pillButtons, ...props }) => {
                 </div>
                 <Row>
                   <Col>
-                   
-                      <Button onClick={() => signIn('google')}
+                    <GoogleOAuthProvider clientId="311327332610-p023nn4qt79suma9m4jqumt6fijaok2c.apps.googleusercontent.com">
+                      <Button
                         variant={`outline-info ${
                           pillButtons ? "rounded-pill" : ""
                         } w-100 mb-3`}
                       >
                         <i className="fi-google fs-lg me-1"></i>
                       </Button>
+                    </GoogleOAuthProvider>
                   </Col>
                   <Col>
                     <Button
