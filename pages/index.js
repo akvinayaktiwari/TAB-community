@@ -9,6 +9,7 @@ import Button from 'react-bootstrap/Button'
 import CloseButton from 'react-bootstrap/CloseButton'
 import ImageLoader from '../components/ImageLoader'
 import PasswordToggle from '../components/PasswordToggle'
+import { signIn, signOut, useSession } from 'next-auth/react';
 
 const SignInModalLight = ({ onSwap, pillButtons, ...props }) => {
 
@@ -94,7 +95,7 @@ const SignInModalLight = ({ onSwap, pillButtons, ...props }) => {
           </div>
           <Row>
             <Col>
-          <Button variant={`outline-info ${pillButtons ? 'rounded-pill' : ''} w-100 mb-3`}>
+          <Button variant={`outline-info ${pillButtons ? 'rounded-pill' : ''} w-100 mb-3`} onClick={() => signIn('google')}>
             <i className='fi-google fs-lg me-1'></i>
            
           </Button>
