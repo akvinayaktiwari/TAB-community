@@ -11,7 +11,7 @@ import ImageLoader from '../components/ImageLoader'
 import PasswordToggle from '../components/PasswordToggle'
 import { useRouter } from 'next/router'
 
-const SignInModalLight = ({ onSwap, pillButtons, ...props }) => {
+const ChangePassword = ({ onSwap, pillButtons, ...props }) => {
 
   // Form validation
   const Router = useRouter();
@@ -89,4 +89,4 @@ const SignInModalLight = ({ onSwap, pillButtons, ...props }) => {
   )
 }
 
-export default SignInModalLight
+export default ChangePassword
