@@ -128,7 +128,7 @@ const SignUpModalLight = ({ onSwap, pillButtons, ...props }) => {
                   className="h1 mb-4 mb-sm-5"
                   style={{ font: "DM Sans", fontWeight: "700" }}
                 >
-                  Join Finder.
+                  Join TAB.
                   <br />
                   Get premium benefits:
                 </h2>
